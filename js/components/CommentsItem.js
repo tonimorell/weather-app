@@ -13,7 +13,7 @@ const templateCommentsItem = `
 </div>
 `
 
-Vue.component('commentas-item', {
+Vue.component('comments-item', {
   props: {
     comment: {
       type: String,

@@ -1,6 +1,7 @@
 const templateCommentsList = `
   <div>
   <h3 class="mb-4">Comments</h3>
+  <h4>Total comments: {{ comments.length }}</h4>
   <comments-item 
     v-for="comment in comments" 
     :key="comment.id"
@@ -12,7 +13,7 @@ const templateCommentsList = `
   </div>
 `
 
-VTTCue.component('comments-list', {
+Vue.component('comments-list', {
   props: ['comments'],
   template: templateCommentsList
 })
