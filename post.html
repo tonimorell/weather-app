@@ -158,16 +158,8 @@
               <input type="text" class="form-control"
                      id="username" placeholder="Enter your username">
             </div>
-          <div class="form-group">
-            <label for="email">Your Email address</label>
-            <input type="email" class="form-control"
-                   id="email" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">
-              For authentication purposes only. We will never share your e-mail with anyone!
-            </small>
-          </div>
           
-          <div class="form-group">
+            <div class="form-group">
             <label for="comments">Comments </label>
             <textarea class="form-control" id="comments" rows="3"></textarea>
           </div>
@@ -185,44 +177,32 @@
         </form>
       
 
-      <div class="comments" id="comments">
-        <h3 class="mb-2">Comments</h3>
-        <!-- comment -->
-        <div class="comment mb-2 row">
-          <div class="comment-avatar col-md-1 col-sm-2 text-center pr-1">
-            <a href=""><img class="mx-auto rounded-circle img-fluid" src="http://demos.themes.guide/bodeo/assets/images/users/m103.jpg"
-                alt="avatar"></a>
-          </div>
-          <div class="comment-content col-md-11 col-sm-10">
-            <h6 class="small comment-meta"><a href="#">admin</a> Today, 2:38</h6>
-            <div class="comment-body">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <a href>http://wwwwww.com</a>
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                ullamco laboris nisi ut aliquip ex ea commodo.
-              </p>
-            </div>
-          </div>
+      <div class="comments" id="comments_block">
+        <h3 class="mb-4">Comments</h3>
 
-        </div>
-        <!-- /comment -->
-        <!-- comment -->
-        <div class="comment mb-2 row">
-          <div class="comment-avatar col-md-1 col-sm-2 text-center pr-1">
-            <a href=""><img class="mx-auto rounded-circle img-fluid" src="http://demos.themes.guide/bodeo/assets/images/users/w102.jpg"
-                alt="avatar"></a>
-          </div>
-          <div class="comment-content col-md-11 col-sm-10">
-            <h6 class="small comment-meta"><a href="#">maslarino</a> Yesterday, 5:03 PM</h6>
-            <div class="comment-body">
-              <p>Sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+        <comments-item 
+          username="juanma"
+          date="Today, 20:00"
+          comment="sdfsdf"
+        ></comments-item>
+
+        <comments-item
+          avatar="http://demos.themes.guide/bodeo/assets/images/users/m103.jpg" 
+          username="admin"
+          date="Today, 2:38"
+          comment="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris nisi ut aliquip ex ea commodo."
+        ></comments-item>
+
+        <comments-item
+        avatar="http://demos.themes.guide/bodeo/assets/images/users/w102.jpg" 
+        username="maslarino"
+        date="Yesterday, 5:03 PM"
+        comment="Sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
                 aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo.
-              </p>
-            </div>
-          </div>
-        </div>
-        
+                commodo."
+      ></comments-item> 
 
       </div>
 
@@ -271,7 +251,14 @@
       </div>
 
       <div class="p-3 mb-3 bg-light rounded" id="widget">
-        
+        <h4 class="font-italic">Temperatura</h4>
+        <p>{{ message }}</p>
+        <select v-model="query" v-on:change="findWeather">
+          <option selected="selected">Barcelona</option>
+          <option>Madrid</option>
+          <option>Murcia</option>
+        </select>
+        <p>Temp: {{ temp }} | Max: {{ temp_max }} | Min: {{ temp_min }}</p>
       </div>
 
       <div class="p-3">
@@ -314,7 +301,11 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
+  <script src="js/WeatherApiService.js"></script>
+  <script src="js/widget-weather.js"></script> 
+  <script src="js/components/CommentsItem.js"></script>
+  <script src="js/widget-comments.js"></script>
 </body>
 
 </html>
