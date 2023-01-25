@@ -113,7 +113,6 @@
 
       <div class="p-3 mb-3 bg-light rounded" id="widget">
         <h4 class="font-italic">Temperatura</h4>
-        <p>{{ message }}</p>
         <select v-model="query" v-on:change="findWeather">
           <option selected="selected">Barcelona</option>
           <option>Madrid</option>
@@ -168,17 +167,11 @@
   <!-- HELPER LIBRARIES -->
   <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
   <script src="https://momentjs.com/downloads/moment.js"></script>
-  <script src="js/helpers/index.js"></script>
-
-  <!-- SERVICES -->
-  <script src="js/WeatherApiService.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
 
   <!-- VUE APP -->
-  <script src="js/widget-weather.js"></script> 
-  <script src="js/components/CommentsItem.js"></script>
-  <script src="js/components/CommentsList.js"></script>
-  <script src="js/components/CommentsForm.js"></script>
-  <script src="js/widget-comments.js"></script>
+  <script type="module" src="js/widget-weather.js"></script> 
+  <script type="module" src="./js/widget-comments.js"></script>
 </body>
 
 </html>
