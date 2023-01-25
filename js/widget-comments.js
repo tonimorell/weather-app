@@ -30,6 +30,7 @@ new Vue({
     addComment: function({ username, comment }) {
       comments_data.push({
         id: HELPERS.guid(),
+        avatar: "http://demos.themes.guide/bodeo/assets/images/users/m103.jpg",
         username,
         comment,
         date: moment().valueOf()
